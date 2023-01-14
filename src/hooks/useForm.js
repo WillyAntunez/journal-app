@@ -1,3 +1,4 @@
+import { initializeApp } from 'firebase/app';
 import { useEffect, useMemo, useState } from 'react';
 
 export const useForm = (initialForm = {}, formValidations = {}) => {
@@ -6,7 +7,11 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
 
     useEffect(() => {
         createValidators();
-    }, [formState])
+    }, [formState]);
+
+    useEffect(() => {
+        setFormState( initialForm );
+    }, [ initialForm ]);
 
     const isFormValid = useMemo(() => {
 
