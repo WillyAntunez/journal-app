@@ -8,8 +8,6 @@ export const startNewNote = () => {
     return async (dispatch, getState) => {
 
         dispatch( savingNewNote() );
-
-        console.log('start new note');
         
         const { uid } = getState().auth;
         
